@@ -1,0 +1,161 @@
+<div class="container">
+  <div class="backend">
+  <!-- Nav pills -->
+  <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="pill" href="#create">Create</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#read">Read</a>
+      </li>
+
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <br>
+      <div class="tab-pane container active" id="create">
+          <form [formGroup]='dataForm' (ngSubmit)="PostData(dataForm.value)">
+              <div class="form-container">
+              <h3 class="text-center">Create a new article</h3><br>
+              <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <input type="text" formControlName='title' name='title' id='title' placeholder="title" class="form-control">
+                <div *ngIf="dataForm.controls['image'].touched && !dataForm.controls['image'].valid">
+                    <span *ngIf="dataForm.controls['title'].hasError('required') " class="error-msg">
+                      title is required
+                    </span>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <br>
+              <input type="text" formControlName='image' placeholder="image" class="form-control">
+    <div *ngIf="dataForm.controls['image'].touched && !dataForm.controls['image'].valid">
+      <span *ngIf="dataForm.controls['image'].hasError('required') " class="error-msg">
+        image is required
+      </span>
+    </div>
+            </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <br>
+              <input type="text"  accept="Image/*" placeholder="headerImage" class="form-control"></div>
+              <div *ngIf="dataForm.controls['headerImage'].touched && !dataForm.controls['headerImage'].valid">
+                <span *ngIf="dataForm.controls['headerImage'].hasError('required') " class="error-msg">
+                 Image is required
+                </span>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <br>
+                  <input type="text" formControlName='introduction' placeholder="introduction" class="form-control">
+                  <div *ngIf="dataForm.controls['introduction'].touched && !dataForm.controls['introduction'].valid">
+                    <span *ngIf="dataForm.controls['introduction'].hasError('required') " class="error-msg">
+                      introduction is required
+                    </span>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <br>
+                  <input type="text" formControlName='description' placeholder="description" class="form-control"></div>
+                  <div *ngIf="dataForm.controls['description'].touched && !dataForm.controls['description'].valid">
+                    <span *ngIf="dataForm.controls['description'].hasError('required') " class="error-msg">
+                     description is required
+                    </span>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <br>
+                    <input type="text" formControlName='lastMod' placeholder="lastMod" class="form-control"></div>
+                    <div *ngIf="dataForm.controls['lastMod'].touched && !dataForm.controls['lastMod'].valid">
+                      <span *ngIf="dataForm.controls['lastMod'].hasError('required') " class="error-msg">
+                       date is required
+                      </span>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <br>
+                      <input type="text" formControlName='language' placeholder="language" class="form-control"></div>
+                      <div *ngIf="dataForm.controls['language'].touched && !dataForm.controls['language'].valid">
+                        <span *ngIf="dataForm.controls['language'].hasError('required') " class="error-msg">
+                          language is required
+                        </span>
+                      </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <br>
+                      <input type="text" formControlName='keyWords' placeholder="keyWords" class="form-control"></div>
+                      <div *ngIf="dataForm.controls['keyWords'].touched && !dataForm.controls['keyWords'].valid">
+                        <span *ngIf="dataForm.controls['keyWords'].hasError('required') " class="error-msg">
+                          keyWords is required
+                        </span>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <br>
+                        <input type="text" formControlName='state' placeholder="state" class="form-control"></div>
+                        <div *ngIf="dataForm.controls['state'].touched && !dataForm.controls['state'].valid">
+                          <span *ngIf="dataForm.controls['state'].hasError('required') " class="error-msg">
+                            state is required
+                          </span>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                          <br>
+                          <input type="text" formControlName='numVisit' placeholder="numVisit" class="form-control"></div>
+                          <div *ngIf="dataForm.controls['numVisit'].touched && !dataForm.controls['numVisit'].valid">
+                            <span *ngIf="dataForm.controls['numVisit'].hasError('required') " class="error-msg">
+                              visitNum is required
+                            </span>
+                          </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <br>
+                            <input type="text" formControlName='idTheme' placeholder="idTheme" class="form-control"></div>
+                            <div *ngIf="dataForm.controls['idTheme'].touched && !dataForm.controls['idTheme'].valid">
+                              <span *ngIf="dataForm.controls['idTheme'].hasError('required') " class="error-msg">
+                                IdTheme is required
+                              </span>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              <br>
+                              <input type="text" formControlName='idUser' placeholder="idUser" class="form-control"></div>
+                              <div *ngIf="dataForm.controls['idUser'].touched && !dataForm.controls['idUser'].valid">
+                                <span *ngIf="dataForm.controls['idUser'].hasError('required') " class="error-msg">
+                                  IdUser is required
+                                </span>
+                              </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <br>
+                                <input type="text" formControlName='idHost' placeholder="idHost" class="form-control"></div>
+                                <div *ngIf="dataForm.controls['idHost'].touched && !dataForm.controls['idHost'].valid">
+                                  <span *ngIf="dataForm.controls['idHost'].hasError('required') " class="error-msg">
+                                    IdHost is required
+                                  </span>
+                                </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <br>
+              <input type="Submit" value="Post article" class="btn btn-success btn-block">
+              </div>
+            </div>
+            </div>
+            </form>
+      </div>
+      <div class="tab-pane container fade"  id="read">
+        <div class="container2">
+          <div class="container1" *ngFor="let item of fetchdata">
+            <div class="card">
+              <div class="card-header">
+              <img src={{item.Image}} alt="rover" />
+              </div>
+              <div class="card-body">
+                <span class="tag tag-teal">{{item.Title}}</span>
+                <p>
+                  {{item.Introduction}}
+                </p>
+                <div class="user">
+                  <div class="user-info">
+                    <small>{{item.LastMod}} </small>
+                    <div class="coding"><small>{{item.IdTheme}}</small></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+        </div>
+
+
+  </div>
